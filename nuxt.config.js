@@ -201,19 +201,14 @@ module.exports = {
     name: 'layout',
     mode: 'out-in'
   },
-  // router: {
-  //   extendRoutes (routes, resolve) {
-  //     routes.push({
-  //       name: 'detail-product-id',
-  //       path: '/detail-product/:id',
-  //       component: resolve(__dirname, 'pages/detail-product.vue')
-  //     })
-  //   }
-  // },
   /*
   ** Application Port
   */
+  env: {
+    backendUrl: 'http://91.239.26.50:90'
+  },
   server: {
     port: 8004, // default: 3000
+    host: '0.0.0.0'
   }
 }

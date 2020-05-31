@@ -1,0 +1,20 @@
+version: '3.7'
+
+services:
+  nuxt:
+    restart: always
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: nuxt_app
+    ports:
+      - "8004:8004"
+
+  nginx:
+    restart: always
+    image: nginx
+    volumes:
+      - ./nginx.conf:/etc/nginx/conf.d/nginx.conf
+    ports:
+      - "80:80"
+    command: nginx -g 'daemon off;'

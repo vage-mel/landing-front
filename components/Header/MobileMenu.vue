@@ -44,7 +44,7 @@ export default {
     }
   },
   mounted() {
-    axios.get(`http://127.0.0.1:8000/api/landing/menu/`)
+    axios.get(`${process.env.backendUrl}/api/landing/menu/`)
     .then((response) => {
       this.navMenu = response.data
     })

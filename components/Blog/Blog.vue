@@ -136,7 +136,7 @@ export default {
     }
   },
   mounted() {
-    axios.get(`http://127.0.0.1:8000/api/landing/blog/`)
+    axios.get(`${process.env.backendUrl}/api/landing/blog/`)
     .then((response) => {
       this.blogContent = response.data
     })

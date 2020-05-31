@@ -77,7 +77,7 @@ export default {
     }
   },
   mounted() {
-    axios.get(`http://127.0.0.1:8000/api/landing/category/`)
+    axios.get(`${process.env.backendUrl}/api/landing/category/`)
     .then((response) => {
       this.categories = response.data
     })

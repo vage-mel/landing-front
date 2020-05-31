@@ -121,7 +121,7 @@ export default {
   },
   mounted () {
     if (this.$route.params.id){
-      axios.get(`http://127.0.0.1:8000/api/landing/product/${this.$route.params.id}`)
+      axios.get(`${process.env.backendUrl}/api/landing/product/${this.$route.params.id}`)
       .then((response) => {
         this.product = response.data
       })
