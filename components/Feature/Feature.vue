@@ -1,8 +1,8 @@
 <template>
   <div class="root" v-if="loaded">
     <v-container fixed>
-      <v-row class="spacing8" v-for="content in testiContent" :key="content.id">
-        <v-col md="4" cols="12" class="py-1 px-8">
+      <v-row class="spacing8">
+        <v-col md="4" cols="12" class="py-1 px-8"  v-for="content in testiContent" :key="content.id">
           <i class="icon" :class="content.icon" />
           <v-divider class="divider" />
           <h5 class="use-text-subtitle">

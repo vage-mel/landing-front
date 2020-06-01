@@ -141,7 +141,7 @@ export default {
     }
   },
   mounted() {
-    axios.get(`${process.env.backendUrl}/api/landing/product/`)
+    axios.get(`${process.env.backendUrl}/api/landing/product/?status_id=2`)
     .then((response) => {
       this.dataProducts = response.data
     })
