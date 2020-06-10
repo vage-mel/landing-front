@@ -205,7 +205,7 @@ module.exports = {
   ** Application Port
   */
   env: {
-    backendUrl: 'http://91.239.26.50:90'
+    backendUrl: 'http://85.143.173.132:9090'
   },
   server: {
     port: 8004, // default: 3000
