@@ -74,7 +74,7 @@ export default {
     }
   },
   mounted() {
-    axios.get(`${process.env.backendUrl}/api/landing/promo/`)
+    axios.get(`${process.env.backendUrl}/api/landing/main-block/`)
     .then((response) => {
       this.content = response.data
     })
