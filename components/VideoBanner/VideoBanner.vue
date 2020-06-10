@@ -1,12 +1,12 @@
 <template>
   <div class="root">
-    <div class="video">
+    <div class="video" v-if="loaded && content.length">
       <div class="overlay" />
-      <img v-if="!play || isMobile" :src="imgAPI.fashion[0]" alt="cover" />
+      <img v-if="!play || isMobile" :src="content[0].img" alt="cover" />
       <div v-if="yt.use">
         <youtube
           v-if="isDesktop"
-          :video-id="videoId"
+          :video-id="content[0].youtube_video_id"
           :player-vars="playerVars"
           :width= "1080"
           :height="720"
@@ -29,9 +29,9 @@
             </v-btn>
           </hidden>
           <h6 class="use-text-subtitle">
-            {{ $t('fashionLanding.banner_title') }}
+            {{ content[0].subtitle }}
           </h6>
-          <h2 class="use-text-title">#BEanICON</h2>
+          <h2 class="use-text-title">{{ content[0].title }}</h2>
           <scrollactive v-if="loaded" :offset="100">
             <v-btn icon large class="arrow anchor-link scrollactive-item" href="#promotions">
               <v-icon>mdi-arrow-down</v-icon>
@@ -51,6 +51,7 @@
 import imgAPI from '~/static/images/imgAPI'
 import youtube from '~/youtube'
 import Hidden from '../Hidden'
+import axios from 'axios'
 
 export default {
   components: {
@@ -58,9 +59,7 @@ export default {
   },
   data() {
     return {
-      imgAPI: imgAPI,
       loaded: false,
-      videoId: '3_VKCIKsn80',
       playerVars: {
         autoplay: 1,
         controls: 0,
@@ -72,11 +71,19 @@ export default {
       yt: youtube,
       play: false,
       playCtrl: true,
-      cover: imgAPI.fashion[0]
     }
   },
   mounted() {
-    this.loaded = true
+    axios.get(`${process.env.backendUrl}/api/landing/promo/`)
+    .then((response) => {
+      this.content = response.data
+    })
+    .catch((e) => {
+      console.log(e)
+    })
+    .finally(() => {
+      this.loaded = true
+    })
   },
   methods: {
     playing() {

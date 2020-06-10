@@ -27,10 +27,10 @@
                         <span class="use-text-subtitle2">
                           {{ content[Math.abs(currentImg) % content.length].caption }}
                         </span>
-                        SALE
+                        {{ content[Math.abs(currentImg) % content.length].title }}
                       </h2>
                       <h4 class="use-text-subtitle">
-                        {{ content[Math.abs(currentImg) % content.length].title }}
+                        {{ content[Math.abs(currentImg) % content.length].subtitle }}
                       </h4>
                       <article class="desc">
                         <h6 class="use-text-paragraph">
