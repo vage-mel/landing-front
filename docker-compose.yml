@@ -16,5 +16,9 @@ services:
     volumes:
       - ./nginx.conf:/etc/nginx/conf.d/nginx.conf
     ports:
+<<<<<<< HEAD
       - "8080:80"
+=======
+      - "81:80"
+>>>>>>> 096d5d9252013c8f999b9070f2e1e7bd2a33e185
     command: nginx -g 'daemon off;'

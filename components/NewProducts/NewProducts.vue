@@ -48,7 +48,7 @@ export default {
     }
   },
   mounted() {
-    axios.get(`${process.env.backendUrl}/api/landing/product/`)
+    axios.get(`${process.env.backendUrl}/api/landing/product/?status_id=1`)
     .then((response) => {
       this.products = response.data
     })
